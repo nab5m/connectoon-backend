@@ -26,10 +26,11 @@ psycopg2-binary가 설치 안될 경우 pip를 최신 버전으로 업그레이�
 
 3. pip install -r requirements.windows.txt
 4. python manage.py migrate
-5. python manage.py runserver
+5. python manage.py loaddata role.json 
+6. python manage.py runserver
 
-6. Open your brower and check if it's operating (http://127.0.0.1:8000)
+7. Open your brower and check if it's operating (http://127.0.0.1:8000)
 
-7. happy coding :)
-8. make pull requests for me
+8. happy coding :)
+9. make pull requests for me
 ```

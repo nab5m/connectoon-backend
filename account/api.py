@@ -1,4 +1,5 @@
 from rest_framework import viewsets, generics, permissions, mixins, status
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 
@@ -34,3 +35,8 @@ class RegisterAPI(generics.CreateAPIView):
             "user": AccountSerializer(user, context=self.get_serializer_context()).data,
             "token": Token.objects.create(user=user).key
         })
+
+
+@api_view(['GET'])
+def user_id_api(request):
+    return Response({"id": request.user.id})

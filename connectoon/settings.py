@@ -48,9 +48,11 @@ INSTALLED_APPS = [
 ]
 
 CORS_ORIGIN_WHITELIST = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
+    "http://connectoon.surge.sh",
 ]
+if DEBUG:
+    CORS_ORIGIN_WHITELIST += ["http://localhost:3000", "http://127.0.0.1:3000", ]
+
 CORS_URLS_REGEX = r'^/api/.*$'
 
 REST_FRAMEWORK = {

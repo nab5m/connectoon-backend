@@ -41,8 +41,8 @@ psycopg2-binary가 설치 안될 경우 pip를 최신 버전으로 업그레이�
 배포 참고 자료
 - https://wikidocs.net/6601#gunicorn_1
 
-sudo vi /etc/postgresql/10/main/pg_hba.conf
-# postgresql 인증 방식 수정
+sudo vi /etc/postgresql/10/main/pg_hba.conf<br>
+=> postgresql 인증 방식 수정
 
-정적 파일(/assets/)는 nginx로 접속
+정적 파일(/assets/)는 nginx로 접속 <br>
 나머지 처리는 gunicorn에 위임

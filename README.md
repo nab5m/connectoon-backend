@@ -46,8 +46,3 @@ sudo vi /etc/postgresql/10/main/pg_hba.conf
 
 정적 파일(/assets/)는 nginx로 접속
 나머지 처리는 gunicorn에 위임
-
-Account __str__
-=> createsuperuser로 만든 계정에서 self.name이 NoneType이 되는 에러 발생
-
-cors-headers/gunicorn/whitenoise > freeze

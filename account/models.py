@@ -44,4 +44,4 @@ class Account(AbstractUser):
         verbose_name_plural = '사용자'
 
     def __str__(self):
-        return self.username + ' ' + self.name
+        return self.username

@@ -1,3 +1,6 @@
+import os
+import uuid
+
 from django.contrib.auth.models import AbstractUser
 from django.core.exceptions import ValidationError
 from django.core.validators import MinLengthValidator
@@ -22,6 +25,11 @@ class Role(models.Model):
         return self.ROLE_CHOICES[self.id - 1][1]
 
 
+def get_uuid_profile_image_url(instance, filename):
+    extension = os.path.splitext(filename)[1]
+    return 'profile/' + str(uuid.uuid4()) + extension
+
+
 class Account(AbstractUser):
     username_validator = ASCIIUsernameValidator()
     username = models.CharField(
@@ -38,7 +46,16 @@ class Account(AbstractUser):
     roles = models.ManyToManyField(Role, blank=True)
     # null=True, to create superuser
     name = models.CharField(_('이름'), max_length=50, null=True)
-    
+    birth_date = models.DateField(_('생년월일'), null=True, blank=True)
+    address = models.CharField(_('사는 곳'), max_length=1000, null=True, blank=True)
+    profile_image = models.ImageField(
+        _('프로필 사진'),
+        upload_to=get_uuid_profile_image_url,
+        default='profile/no_image.gif',
+        null=True,
+        blank=True
+    )
+
     class Meta:
         verbose_name = '사용자'
         verbose_name_plural = '사용자'

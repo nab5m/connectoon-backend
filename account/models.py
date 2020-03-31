@@ -24,6 +24,7 @@ class Role(models.Model):
         return self.ROLE_CHOICES[self.id - 1][1]
 
 
+# ToDo: 충돌 가능성
 def get_uuid_profile_image_url(instance, filename):
     extension = os.path.splitext(filename)[1]
     return 'profile/' + str(uuid.uuid4()) + extension
